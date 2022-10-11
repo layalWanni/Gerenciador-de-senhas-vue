@@ -66,7 +66,7 @@ export class PasswordClient {
         }
     }
 
-    public async deletar(password: Password): Promise<void>{
-        
-    }
+    // public async deletar(password: Password): Promise<void>{
+
+    // }
 }
