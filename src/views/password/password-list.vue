@@ -25,9 +25,9 @@
     <thead>
     <tr>
       <th>ID</th>
-      <th>Ativo</th>
       <th>Descrição</th>
       <th>Url</th>
+      <th>Senha</th>
       <th>Opções</th>
     </tr>
     </thead>
@@ -35,12 +35,13 @@
     <tbody>
     <tr v-for="item in passwordsList" :key="item.id">
       <th>{{ item.id }}</th>
-      <th>
+      <!-- <th>
         <span v-if="item.ativo == true" class="tag is-success"> Ativo </span>
         <span v-if="!item.ativo" class="tag is-danger"> Inativo </span>
-      </th>
+      </th> -->
       <th>{{ item.descricao }}</th>
       <th>{{ item.url }}</th>
+      <th>{{ item.senha }}</th>
       <th>
         <button @click="onClickPaginaDetalhar(item.id)" class="button is-small is-info is-outlined">
           Detalhar

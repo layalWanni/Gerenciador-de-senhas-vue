@@ -65,4 +65,8 @@ export class PasswordClient {
             return Promise.reject(error.response)
         }
     }
+
+    public async deletar(password: Password): Promise<void>{
+        
+    }
 }

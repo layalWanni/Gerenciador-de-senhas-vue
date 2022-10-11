@@ -3,9 +3,10 @@ import HomeView from '../views/HomeView.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
-    path: '/',
-    name: 'home',
-    component: HomeView
+    path: '/password/listar',
+    name: 'password-listar',
+    component: () => import(/* webpackChunkName: "list" */ '../views/password/password-list.vue')
+
   },
   {
     path: '/password/listar',
