@@ -13,22 +13,6 @@
       </div>
     </div>
   </div>
-  <!-- <div class="columns" v-if="visualizar === 'detalhar'">
-    <div class="column is-12 is-size-3">
-      <label class="label">
-        <input v-model="password.ativo" disabled checked type="checkbox">
-        Ativar Senha
-      </label>
-    </div>
-  </div>
-  <div class="columns" v-else>
-    <div class="column is-12 is-size-3">
-      <label class="label">
-        <input v-model="password.ativo" checked type="checkbox">
-        Ativar Senha
-      </label>
-    </div>
-  </div> -->
 
   <div class="columns">
     <div class="column is-12 is-size-3">
@@ -73,7 +57,7 @@
       <button class="button is-fullwidth is-info " @click="onClickSairModoDetalhar()">Editar</button>
     </div>
     <div class="column is-2">
-      <button class="button is-fullwidth is-danger" @click="onClickDesativar()">Excluir</button>
+      <button class="button is-fullwidth is-danger" @click="onClickDeletar()">Excluir</button>
     </div>
   </div>
 
@@ -85,14 +69,18 @@
       </router-link>
     </div>
     <div class="column is-2">
+      <router-link to="/password/listar">
       <button class="button is-fullwidth is-info " @click="onClickEditar()">Salvar as Alterações</button>
+      </router-link>
     </div>
     <div class="column is-2">
-      <button class="button is-fullwidth is-danger" @click="onClickDesativar()">Excluir</button>
+      <router-link to="/password/listar">
+      <button class="button is-fullwidth is-danger" @click="onClickDeletar()">Excluir</button>
+    </router-link>
     </div>
   </div>
 
-  <div class="columns" v-if="visualizar === 'cadastrar'">
+  <div class="columns" v-if="visualizar === 'Cadastrar'">
     <div class="column is-8"></div>
     <div class="column is-2">
       <router-link to="/password/listar">
@@ -100,7 +88,9 @@
       </router-link>
     </div>
     <div class="column is-2">
+      <router-link to="/password/listar">
       <button class="button is-fullwidth is-info" @click="onClickCadastrar()">Cadastrar Senha</button>
+    </router-link>
     </div>
   </div>
 </template>
@@ -160,7 +150,7 @@ export default class PasswordForm extends Vue {
         console.log(this.notification)
       })
     } else {
-      this.visualizar = 'cadastrar'
+      this.visualizar = 'Cadastrar'
     }
   }
 
@@ -173,10 +163,10 @@ export default class PasswordForm extends Vue {
     })
   }
 
-  onClickDesativar(): void {
-    this.passwordClient.desativar(this.password).then(sucess => {
+  onClickDeletar(): void {
+    this.passwordClient.deletar(this.password).then(sucess => {
       this.notification = this.notification.new(true, 'notification is-success',
-          'A senha foi desativada com sucesso')
+          'A senha foi excluida com sucesso')
     }, error => {
       this.notification = this.notification.new(true, 'notification is-danger',
           'Error: ' + error)

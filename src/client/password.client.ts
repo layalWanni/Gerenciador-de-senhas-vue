@@ -58,15 +58,19 @@ export class PasswordClient {
         }
     }
 
-    public async desativar(password: Password): Promise<void> {
+    // public async desativar(password: Password): Promise<void> {
+    //     try {
+    //         return (await this.axiosClient.put(`/desativar/${password.id}`, password)).data
+    //     } catch (error: any) {
+    //         return Promise.reject(error.response)
+    //     }
+    // }
+
+    public async deletar(password: Password): Promise<void> {
         try {
-            return (await this.axiosClient.put(`/desativar/${password.id}`, password)).data
+            return (await this.axiosClient.delete(`/${password.id}`, password)).data
         } catch (error: any) {
             return Promise.reject(error.response)
         }
     }
-
-    // public async deletar(password: Password): Promise<void>{
-
-    // }
 }
