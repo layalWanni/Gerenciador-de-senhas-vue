@@ -21,7 +21,7 @@
     </router-link>
   </div>
 
-  <table class="table">
+  <table class="table is-hoverable">
     <thead>
     <tr>
       <th>ID</th>
@@ -35,10 +35,6 @@
     <tbody>
     <tr v-for="item in passwordsList" :key="item.id">
       <th>{{ item.id }}</th>
-      <!-- <th>
-        <span v-if="item.ativo == true" class="tag is-success"> Ativo </span>
-        <span v-if="!item.ativo" class="tag is-danger"> Inativo </span>
-      </th> -->
       <th>{{ item.descricao }}</th>
       <th>{{ item.url }}</th>
       <th>{{ item.senha }}</th>
@@ -68,12 +64,15 @@ export default class PasswordList extends Vue {
   pageResponse: PageResponse<Password> = new PageResponse()
 
   passwordsList: Password[] = []
+
+
   passwordClient!: PasswordClient
 
   public mounted(): void {
     this.passwordClient = new PasswordClient()
     this.listarPasswords()
   }
+
   private listarPasswords(): void {
     this.passwordClient.findByFiltrosPaginado(this.pageRequest)
         .then(
