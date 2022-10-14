@@ -50,6 +50,14 @@ export class PasswordClient {
         }
     }
 
+    public async listar(): Promise<Password[]> {
+        try{
+            return(await this.axiosClient.get('/')).data
+        } catch(error:any){
+            return Promise.reject(error.response)
+        }
+    }
+
     public async editar(password: Password): Promise<void> {
         try {
             return (await this.axiosClient.put(`/${password.id}`, password)).data

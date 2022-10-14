@@ -1,6 +1,5 @@
-import {AbstractEntity} from "./abstract-entity.model";
-
-export class Password extends AbstractEntity{
+export class Password{
+    id! : number
     descricao! : string
     url! : string
     senha! : string

@@ -69,14 +69,10 @@
       </router-link>
     </div>
     <div class="column is-2">
-      <router-link to="/password/listar">
       <button class="button is-fullwidth is-info " @click="onClickEditar()">Salvar as Alterações</button>
-      </router-link>
     </div>
     <div class="column is-2">
-      <router-link to="/password/listar">
       <button class="button is-fullwidth is-danger" @click="onClickDeletar()">Excluir</button>
-    </router-link>
     </div>
   </div>
 
@@ -88,9 +84,7 @@
       </router-link>
     </div>
     <div class="column is-2">
-      <router-link to="/password/listar">
       <button class="button is-fullwidth is-info" @click="onClickCadastrar()">Cadastrar Senha</button>
-    </router-link>
     </div>
   </div>
 </template>

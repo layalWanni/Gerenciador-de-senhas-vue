@@ -64,8 +64,6 @@ export default class PasswordList extends Vue {
   pageResponse: PageResponse<Password> = new PageResponse()
 
   passwordsList: Password[] = []
-
-
   passwordClient!: PasswordClient
 
   public mounted(): void {
@@ -74,11 +72,10 @@ export default class PasswordList extends Vue {
   }
 
   private listarPasswords(): void {
-    this.passwordClient.findByFiltrosPaginado(this.pageRequest)
+    this.passwordClient.listar()
         .then(
-            success => {
-              this.pageResponse = success
-              this.passwordsList = this.pageResponse.content
+            async success => {
+              this.passwordsList = await success
             },
             error => console.log(error)
         )

@@ -1,4 +1,4 @@
-# consultorio-client
+# gerenciador-de-senhas
 
 ## Project setup
 ```
